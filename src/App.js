@@ -18,8 +18,6 @@ function App() {
                 <Route exact path="/" element={<Contacts />} />
                 <Route  path="/add" element={<AddContact />} />
                 <Route  path="/edit/:id" element={<EditContact />} />
-
-              
               </Routes>
               </BrowserRouter>
             </div>

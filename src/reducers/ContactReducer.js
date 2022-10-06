@@ -247,12 +247,14 @@ const intialState = {
 
 export const ContactReducer = (state = intialState, action) => {
   switch (action.type) {
+    // add new contact
     case CREATE_CONTACT: {
       return {
         ...state,
         contacts: [...state.contacts, action.contact].reverse(),
       };
     }
+    // load data back to feilds for update 
     case GET_CONTACT: {
       let arr = state.contacts.filter((val) => val.id == action.id);
       arr = arr.values();
@@ -265,6 +267,7 @@ export const ContactReducer = (state = intialState, action) => {
         contact: arr,
       };
     }
+    // update data
     case UPDATE_CONTACT: {
       return {
         ...state,
@@ -276,6 +279,7 @@ export const ContactReducer = (state = intialState, action) => {
         ],
       };
     }
+    //delete data 
     case DELETE_CONTACT: {
       return {
         ...state,
@@ -284,6 +288,7 @@ export const ContactReducer = (state = intialState, action) => {
         }),
       };
     }
+    // select all data by check the top check box
 
     case SELECT_CONTACT: {
       return {
@@ -291,6 +296,7 @@ export const ContactReducer = (state = intialState, action) => {
         selectedContacts: action.id,
       };
     }
+    // clear all data when you un check the top check box
 
     case CLEAR_CONTACT: {
       return {
@@ -298,6 +304,7 @@ export const ContactReducer = (state = intialState, action) => {
         selectedContacts: [],
       };
     }
+    // to delete all data after select all contacts by checked the top check box 
     case DELETE_SELECTED_CONTACT: {
       return {
         ...state,
